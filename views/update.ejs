@@ -1,0 +1,11 @@
+<%- include('header/header.ejs') %>
+<form method="post" action="/update/<%= id %>">
+    <label>BookName</label>
+    <input type="text" name="BookName" value="<%= Book.BookName%>">
+    <br>
+    <label>AuthorName</label>
+    <input type="text" name="AuthorName" value="<%= Book.AuthorName%>">
+    <br><br>
+    <input type="submit">
+</form>
+<%- include('footer/footer.ejs') %>

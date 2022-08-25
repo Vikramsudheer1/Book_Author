@@ -1,0 +1,67 @@
+<%- include('header/header.ejs') %>
+<div class="sa">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300" rel="stylesheet">
+
+   <h1><b>Book Details</b></h1>
+
+
+ <div class="row"> 
+ <div class="col-md-3">
+  <% if(msg != ""){%>
+  <div class="alert alert-success" role="alert">
+    <%= msg %>
+   
+  </div>
+  <%}%>
+ <form method="POST" action="/add">
+  <div class="form-group">
+    <th></th>
+    <label for="email">BookName</label>
+    <input type="text" placeholder="Enter Book Name" class="form-control " name="BookName" id="email">
+  </div>
+  <br>
+  <div class="form-group ">
+    <td></td>
+    <label for="email">AuthorName</label>
+    <input type="text"  placeholder="Enter Author Name" class="form-control " name="AuthorName" id="email">
+  </div> 
+  
+<br>
+<button type="submit" class="btn button-add">Submit</button>
+  <button type="submit" class="btn  btn-success ">Reset</button>
+     </form>
+   </div> 
+   
+  <table class="table">
+    <thead>
+      <tr>
+        <th></th>
+        <th>BookName</th>
+        <th>AuthorName</th>
+       
+      </tr>
+    </thead>
+    <tbody>
+      <% for(var i=0;i<name.length; i++){ %>
+      <tr>
+        <td></td>
+        <td><%= name[i].BookName %></td>
+        <td><%= name[i].AuthorName %></td>
+        
+        <td>
+          <a href="/update/<%= i%>" class="btn btn-info">Edit</a>
+          <a href="/delete/<%= i%>"  class="btn btn-warning">clear</a>
+        </td>
+
+      </tr>
+      <% } %>
+     
+    </tbody>
+  </table>
+   </div>
+</div>
+  </div>
+
+</div>
+</div>
+<%- include('footer/footer.ejs') %>
